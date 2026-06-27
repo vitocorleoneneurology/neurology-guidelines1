@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Neurology Guidelines</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0d0f14;
+    --surface: #161920;
+    --surface2: #1e2230;
+    --border: #2a2f3f;
+    --accent: #5b8ef0;
+    --accent-soft: rgba(91,142,240,0.12);
+    --accent2: #e5645a;
+    --text: #e8ecf5;
+    --muted: #7a82a0;
+    --success: #4caf8a;
+    --warn: #e8a33a;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 20px 12px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .logo {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .logo span { color: var(--accent); }
+  .progress-bar-wrap {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), #8ab4f8);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+  }
+  .progress-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    gap: 4px;
+    padding: 0 20px 14px;
+    background: var(--surface);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .tab-btn.active {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* MAIN */
+  .main { padding: 16px 20px 100px; }
+
+  /* SECTION TITLE */
+  .section-eyebrow {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .card:active { border-color: var(--accent); }
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .card-meta { flex: 1; }
+  .card-title {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 2px;
+  }
+  .card-badge {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    display: inline-block;
+  }
+  .badge-aha { background: rgba(229,100,90,0.15); color: var(--accent2); }
+  .badge-esc { background: rgba(91,142,240,0.15); color: var(--accent); }
+  .badge-aan { background: rgba(76,175,138,0.15); color: var(--success); }
+  .badge-who { background: rgba(232,163,58,0.15); color: var(--warn); }
+  .card-desc {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-pills {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-family: var(--mono);
+    font-size: 9px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 2px 7px;
+    border-radius: 20px;
+  }
+  .card-arrow {
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* DETAIL VIEW */
+  .detail-view { display: none; }
+  .detail-view.active { display: block; }
+  .list-view { display: block; }
+  .list-view.hidden { display: none; }
+
+  .back-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .detail-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .detail-meta {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+
+  /* ALGORITHM BLOCK */
+  .algo-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+  }
+  .algo-header {
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .algo-body { padding: 14px; }
+  .algo-step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .algo-step:last-child { margin-bottom: 0; }
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .step-content { flex: 1; }
+  .step-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+  .step-text {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .step-code {
+    font-family: var(--mono);
+    font-size: 11px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-top: 6px;
+    color: #8ab4f8;
+    line-height: 1.6;
+  }
+
+  /* KEY POINTS */
+  .key-points {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 14px;
+    margin-bottom: 14px;
+  }
+  .key-points-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .key-point {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .key-point:last-child { margin-bottom: 0; }
+  .key-point::before {
+    content: "›";
+    color: var(--accent);
+    font-size: 14px;
+    flex-shrink: 0;
+    line-height: 1.3;
+  }
+
+  /* WARNING BOX */
+  .warn-box {
+    background: rgba(232,163,58,0.08);
+    border: 1px solid rgba(232,163,58,0.3);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #e8c06a;
+  }
+  .warn-box-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--warn);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  /* DRUG TABLE */
+  .drug-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+  .drug-table th {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: left;
+    padding: 8px 10px;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+  }
+  .drug-table td {
+    font-size: 11px;
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.4;
+  }
+  .drug-table tr:last-child td { border-bottom: none; }
+  .drug-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+  .drug-name { font-weight: 600; color: var(--accent); font-size: 12px; }
+
+  /* FLASHCARD MODE */
+  .flashcard-wrap {
+    perspective: 1000px;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+  .flashcard {
+    position: relative;
+    width: 100%;
+    min-height: 180px;
+    transform-style: preserve-3d;
+    transition: transform 0.45s ease;
+    border-radius: 12px;
+  }
+  .flashcard.flipped { transform: rotateY(180deg); }
+  .fc-front, .fc-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .fc-front {
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+  .fc-back {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    transform: rotateY(180deg);
+  }
+  .fc-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .fc-back .fc-label { color: var(--accent); }
+  .fc-question {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+  }
+  .fc-answer {
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: center;
+    color: var(--text);
+  }
+  .fc-tap-hint {
+    font-family: var(--mono);
+    font-size: 9px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 12px;
+  }
+  .fc-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .fc-nav-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: var(--mono);
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .fc-nav-btn:active { border-color: var(--accent); color: var(--accent); }
+  .fc-counter {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* QUIZ */
+  .quiz-q {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .quiz-option {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1.4;
+    transition: all 0.15s;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .quiz-option:active { border-color: var(--accent); }
+  .quiz-option.correct { border-color: var(--success); background: rgba(76,175,138,0.08); color: var(--success); }
+  .quiz-option.wrong { border-color: var(--accent2); background: rgba(229,100,90,0.08); color: var(--accent2); }
+  .option-letter {
+    font-family: var(--mono);
+    font-size: 10px;
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    background: var(--surface2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .quiz-explain {
+    background: rgba(76,175,138,0.06);
+    border: 1px solid rgba(76,175,138,0.2);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #8eded0;
+    display: none;
+  }
+  .quiz-next-btn {
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 12px;
+    display: none;
+    text-transform: uppercase;
+  }
+
+  /* SCORE */
+  .score-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  .score-num {
+    font-family: var(--mono);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .score-label { font-size: 13px; color: var(--muted); }
+
+  /* HOME STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .stat-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 10px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-lbl {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.3;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 16px 0;
+  }
+
+  /* SOURCE BUTTON */
+  .source-bar {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .source-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .source-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    padding: 5px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  .source-link:active { background: rgba(91,142,240,0.25); }
+  .source-disclaimer {
+    font-size: 10px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div class="logo"><span>Neuro</span>Guidelines · Mobile</div>
+    <div style="font-family:var(--mono);font-size:10px;color:var(--muted)" id="headerMode">HOME</div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progressFill" style="width:18%"></div>
+  </div>
+  <div class="progress-label">
+    <span id="progressText">Progress</span>
+    <span id="progressPct">18%</span>
+  </div>
+</div>
+
+<div style="background:var(--surface);border-bottom:1px solid var(--border)">
+  <div class="nav-tabs" id="navTabs">
+    <button class="tab-btn active" onclick="showTab('home')">Home</button>
+    <button class="tab-btn" onclick="showTab('guidelines')">Guidelines</button>
+    <button class="tab-btn" onclick="showTab('flashcards')">Flashcards</button>
+    <button class="tab-btn" onclick="showTab('quiz')">Quiz</button>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- HOME TAB -->
+  <div id="tab-home">
+    <div class="section-eyebrow">Overview</div>
+    <div class="section-title">Neurology<br>Guidelines 2024</div>
+    <div class="section-sub">Evidence-based clinical guidelines for stroke, epilepsy, migraine, dementia, and MS.</div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-num">9</div>
+        <div class="stat-lbl">Topics</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">26</div>
+        <div class="stat-lbl">Flashcards</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">9</div>
+        <div class="stat-lbl">Quiz Qs</div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow">Quick Access</div>
+    <div class="card" onclick="openDetail('stroke')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,100,90,0.12)">🧠</div>
+        <div class="card-meta">
+          <div class="card-title">Acute Ischemic Stroke</div>
+          <span class="card-badge badge-aha">AHA/ASA 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">tPA window, thrombectomy criteria, BP management, and secondary prevention.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('epilepsy')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(91,142,240,0.12)">⚡</div>
+        <div class="card-meta">
+          <div class="card-title">Epilepsy & Status Epilepticus</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">First-line AEDs, status epilepticus protocol, and driving restrictions.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('migraine')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(76,175,138,0.12)">💊</div>
+        <div class="card-meta">
+          <div class="card-title">Migraine Management</div>
+          <span class="card-badge badge-aan">AAN/AHS 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">Acute and preventive therapies including triptans, CGRP antagonists, and gepants.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('ms')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(232,163,58,0.12)">🔵</div>
+        <div class="card-meta">
+          <div class="card-title">Multiple Sclerosis</div>
+          <span class="card-badge badge-esc">EAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">McDonald criteria, DMT selection, relapse management, and monitoring.</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-eyebrow">New Categories</div>
+
+    <div class="card" onclick="openDetail('neuropathy')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(180,100,240,0.12)">🧬</div>
+        <div class="card-meta">
+          <div class="card-title">Peripheral Neuropathy</div>
+          <span class="card-badge badge-aan">AAN 2022</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">CIDP, GBS, diabetic neuropathy — diagnosis, EMG criteria, and treatment.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('neuromuscular')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(50,180,150,0.12)">💪</div>
+        <div class="card-meta">
+          <div class="card-title">Neuromuscular Disease</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">ALS, myasthenia gravis, and muscular dystrophies — diagnosis and disease-modifying therapy.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('neurocognitive')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(240,160,60,0.12)">🧩</div>
+        <div class="card-meta">
+          <div class="card-title">Neurocognitive Disorders</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">Alzheimer's, FTD, LBD — diagnostic criteria, biomarkers, and anti-amyloid therapies.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('neurooncology')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,80,80,0.12)">🎗️</div>
+        <div class="card-meta">
+          <div class="card-title">Neuro-Oncology</div>
+          <span class="card-badge badge-who">WHO 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">WHO CNS tumor classification, glioblastoma management, and brain metastasis protocols.</div>
+    </div>
+  </div>
+
+  <!-- GUIDELINES TAB -->
+  <div id="tab-guidelines" style="display:none">
+    <div class="section-eyebrow">Browse</div>
+    <div class="section-title">All Guidelines</div>
+    <div class="section-sub">Tap any topic to read the full summary.</div>
+
+    <div class="card" onclick="openDetail('stroke')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,100,90,0.12)">🧠</div>
+        <div class="card-meta">
+          <div class="card-title">Acute Ischemic Stroke</div>
+          <span class="card-badge badge-aha">AHA/ASA 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">tPA</span><span class="pill">Thrombectomy</span><span class="pill">BP</span><span class="pill">Prevention</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('epilepsy')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(91,142,240,0.12)">⚡</div>
+        <div class="card-meta">
+          <div class="card-title">Epilepsy & Status Epilepticus</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">AEDs</span><span class="pill">Status</span><span class="pill">Driving</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('migraine')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(76,175,138,0.12)">💊</div>
+        <div class="card-meta">
+          <div class="card-title">Migraine Management</div>
+          <span class="card-badge badge-aan">AAN/AHS 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">Triptans</span><span class="pill">CGRP</span><span class="pill">Gepants</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('ms')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(232,163,58,0.12)">🔵</div>
+        <div class="card-meta">
+          <div class="card-title">Multiple Sclerosis</div>
+          <span class="card-badge badge-esc">EAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">McDonald</span><span class="pill">DMT</span><span class="pill">Relapse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('neuropathy')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(180,100,240,0.12)">🧬</div>
+        <div class="card-meta">
+          <div class="card-title">Peripheral Neuropathy</div>
+          <span class="card-badge badge-aan">AAN 2022</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">CIDP</span><span class="pill">GBS</span><span class="pill">Diabetic</span><span class="pill">EMG</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('neuromuscular')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(50,180,150,0.12)">💪</div>
+        <div class="card-meta">
+          <div class="card-title">Neuromuscular Disease</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">ALS</span><span class="pill">MG</span><span class="pill">Dystrophy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('neurocognitive')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(240,160,60,0.12)">🧩</div>
+        <div class="card-meta">
+          <div class="card-title">Neurocognitive Disorders</div>
+          <span class="card-badge badge-aan">AAN 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">Alzheimer's</span><span class="pill">FTD</span><span class="pill">LBD</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openDetail('neurooncology')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,80,80,0.12)">🎗️</div>
+        <div class="card-meta">
+          <div class="card-title">Neuro-Oncology</div>
+          <span class="card-badge badge-who">WHO 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-footer">
+        <div class="card-pills">
+          <span class="pill">GBM</span><span class="pill">WHO Grade</span><span class="pill">Mets</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: STROKE -->
+  <div id="detail-stroke" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2026</div>
+    <div class="detail-title">Acute Ischemic Stroke</div>
+    <div class="detail-meta">UPDATED: JAN 2026 · Class I–IIa recommendations</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000513" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Hyperacute Algorithm</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">tPA (Alteplase) window</div>
+            <div class="step-text">0–4.5 h from symptom onset. Dose 0.9 mg/kg (max 90 mg); 10% IV bolus, remainder over 60 min.</div>
+            <div class="step-code">Exclusions: BP >185/110 · INR >1.7<br>Prior ICH · Major surgery <14d</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Tenecteplase (TNK)</div>
+            <div class="step-text">Now Class IIa: 0.25 mg/kg IV single bolus, 0–4.5 h. Preferred prior to thrombectomy.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Mechanical Thrombectomy</div>
+            <div class="step-text">Large vessel occlusion, NIHSS ≥6, ASPECTS ≥6. Door-to-puncture &lt;90 min.</div>
+            <div class="step-code">Window: 0–24 h with imaging selection<br>DAWN / DEFUSE-3 criteria beyond 6 h</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Blood Pressure Targets</div>
+            <div class="step-text">Pre-tPA: reduce to &lt;185/110 before giving. Post-tPA: maintain &lt;180/105 for 24 h. No thrombolytics: allow up to 220/120 (Class IIb).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">Secondary Prevention</div>
+      <div class="key-point">Antiplatelet (aspirin 81–325 mg) within 24–48 h if no thrombolytics.</div>
+      <div class="key-point">Dual antiplatelet (aspirin + clopidogrel) × 21 days for minor stroke or high-risk TIA (NIHSS ≤3, ABCD2 ≥4).</div>
+      <div class="key-point">AF-related stroke: start anticoagulation 4–14 days post-stroke.</div>
+      <div class="key-point">Statin therapy regardless of baseline LDL. Target LDL &lt;70 mg/dL.</div>
+      <div class="key-point">Symptomatic carotid stenosis ≥70%: CEA within 2 weeks.</div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-title">⚠ BP Pitfall</div>
+      Permissive hypertension (up to 220/120) is only for non-thrombolysis candidates. Aggressive lowering increases infarct extension risk in first 24 h.
+    </div>
+  </div>
+
+  <!-- DETAIL: EPILEPSY -->
+  <div id="detail-epilepsy" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AAN 2023</div>
+    <div class="detail-title">Epilepsy & Status Epilepticus</div>
+    <div class="detail-meta">LAST UPDATED: 2023 · Convulsive status protocol</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.aan.com/guidelines/home/bystatusortype?status=all" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Status Epilepticus Protocol</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Phase 1 — 0–5 min</div>
+            <div class="step-text">Stabilize ABCs. Fingerstick glucose. IV access × 2.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Phase 2 — 5–20 min (Benzodiazepine)</div>
+            <div class="step-code">Lorazepam 0.1 mg/kg IV (max 4 mg)<br>OR Midazolam 10 mg IM (>40 kg)<br>OR Diazepam 0.2 mg/kg PR</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Phase 3 — 20–40 min (2nd line)</div>
+            <div class="step-code">Fosphenytoin 20 PE/kg IV<br>OR Valproate 40 mg/kg IV<br>OR Levetiracetam 60 mg/kg IV</div>
+            <div class="step-text" style="margin-top:6px">All three are Class IIa; no single agent preferred over another.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Refractory (>40 min)</div>
+            <div class="step-text">Intubate + midazolam/propofol/pentobarbital infusion. Continuous EEG monitoring mandatory.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">First Seizure — AED Initiation</div>
+    <table class="drug-table">
+      <tr><th>Seizure Type</th><th>First-Line AED</th><th>Notes</th></tr>
+      <tr><td>Focal</td><td><span class="drug-name">Lamotrigine<br>Levetiracetam</span></td><td>LTG: slow titration, Steven-Johnson risk</td></tr>
+      <tr><td>Generalized absence</td><td><span class="drug-name">Ethosuximide<br>Valproate</span></td><td>ETX preferred (fewer systemic SE)</td></tr>
+      <tr><td>Juvenile myoclonic</td><td><span class="drug-name">Valproate<br>Levetiracetam</span></td><td>Avoid carbamazepine (worsens)</td></tr>
+      <tr><td>GTCS</td><td><span class="drug-name">Levetiracetam<br>Lamotrigine</span></td><td>VPA if female of childbearing age not preferred</td></tr>
+    </table>
+  </div>
+
+  <!-- DETAIL: MIGRAINE -->
+  <div id="detail-migraine" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AAN/AHS 2021</div>
+    <div class="detail-title">Migraine Management</div>
+    <div class="detail-meta">INCLUDES GEPANTS & DITANS (2021 UPDATE)</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.neurology.org/doi/10.1212/WNL.0b013e3182535d20" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Acute Treatment — Stratified Care</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Mild–Moderate</div>
+            <div class="step-code">NSAIDs (ibuprofen 400–800 mg)<br>Acetaminophen 1000 mg<br>Aspirin 900–1000 mg + metoclopramide</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Moderate–Severe (Triptans)</div>
+            <div class="step-code">Sumatriptan 50–100 mg PO (or 6 mg SC)<br>Rizatriptan 10 mg<br>Eletriptan 40 mg (most efficacious PO)</div>
+            <div class="step-text" style="margin-top:6px">Avoid in CAD, uncontrolled HTN, hemiplegic migraine.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Triptan-Contraindicated or Failure</div>
+            <div class="step-code">Lasmiditan 50–200 mg (ditan; no vasoconstriction)<br>Ubrogepant 50–100 mg (gepant)<br>Rimegepant 75 mg (also preventive)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Preventive Therapy</div>
+    <table class="drug-table">
+      <tr><th>Drug Class</th><th>Agent</th><th>Target / Notes</th></tr>
+      <tr><td>Beta-blocker</td><td><span class="drug-name">Propranolol<br>Metoprolol</span></td><td>First-line; ↓ frequency ~50%</td></tr>
+      <tr><td>Anticonvulsant</td><td><span class="drug-name">Topiramate<br>Valproate</span></td><td>Topiramate: cognitive SE; VPA: avoid pregnancy</td></tr>
+      <tr><td>Tricyclic</td><td><span class="drug-name">Amitriptyline</span></td><td>Comorbid depression/insomnia benefit</td></tr>
+      <tr><td>CGRP MAb</td><td><span class="drug-name">Erenumab<br>Fremanezumab</span></td><td>Monthly or quarterly SC; 3-month trial minimum</td></tr>
+      <tr><td>Botulinum</td><td><span class="drug-name">OnabotulinumA</span></td><td>Chronic migraine ≥15 d/mo; q12 weeks</td></tr>
+    </table>
+
+    <div class="key-points">
+      <div class="key-points-title">Preventive Criteria</div>
+      <div class="key-point">≥4 headache days/month with some disability, OR</div>
+      <div class="key-point">≥8 headache days/month, OR</div>
+      <div class="key-point">Acute medication overuse (≥10–15 d/month).</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: MS -->
+  <div id="detail-ms" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">EAN/ECTRIMS 2023</div>
+    <div class="detail-title">Multiple Sclerosis</div>
+    <div class="detail-meta">McDONALD 2017 CRITERIA · UPDATED DMT GUIDANCE</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ean.org/home/organisation/scientific-panels/multiple-sclerosis" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">McDonald 2017 Criteria (RRMS)</div>
+      <div class="key-point">DIS: ≥1 T2 lesion in ≥2 CNS areas (periventricular, cortical/juxtacortical, infratentorial, spinal).</div>
+      <div class="key-point">DIT: simultaneous Gd+ and Gd− lesions, OR new T2/Gd+ on follow-up MRI, OR CSF-specific OCBs.</div>
+      <div class="key-point">Diagnosis requires exclusion of alternative diagnoses.</div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">DMT Selection Framework</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Moderate efficacy (low-risk)</div>
+            <div class="step-code">Interferons (IFN-β1a, IFN-β1b)<br>Glatiramer acetate<br>Dimethyl fumarate · Teriflunomide</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">High efficacy (escalation or early)</div>
+            <div class="step-code">Natalizumab (JCV Ab monitoring)<br>Ocrelizumab (B-cell depletion)<br>Ofatumumab · Alemtuzumab · Cladribine</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Acute Relapse</div>
+            <div class="step-text">Methylprednisolone 1g IV × 3–5 days. Speeds recovery but does not change long-term outcomes.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: NEUROPATHY -->
+  <div id="detail-neuropathy" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AAN 2022</div>
+    <div class="detail-title">Peripheral Neuropathy</div>
+    <div class="detail-meta">CIDP · GBS · DIABETIC NEUROPATHY</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://pnsociety.com/resources/guidelines/" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">CIDP Diagnostic Criteria</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Clinical Features</div>
+            <div class="step-text">Progressive or relapsing-remitting symmetric limb weakness + sensory symptoms >8 weeks. Areflexia. Cranial nerve involvement possible.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Nerve Conduction Studies (mandatory)</div>
+            <div class="step-code">Demyelination in ≥2 nerves:<br>Prolonged distal latency (>115% ULN)<br>Reduced conduction velocity (<90% LLN)<br>Conduction block or temporal dispersion</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Supportive Evidence</div>
+            <div class="step-text">CSF protein elevated (&gt;45 mg/dL) without pleocytosis. MRI nerve root/plexus enhancement. Anti-NF155/CASPR1 antibodies in variants.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">First-Line Treatment</div>
+            <div class="step-code">IVIg 2 g/kg over 2–5 days, then 1 g/kg q3–4 weeks<br>OR Corticosteroids (prednisolone 60 mg/day)<br>OR Plasma exchange (5 exchanges over 2 weeks)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">GBS — Acute Management</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Admission Criteria</div>
+            <div class="step-text">All GBS patients require admission. Monitor FVC q4–6 h. Intubate if FVC &lt;15–20 mL/kg, NIF &lt;−25 cmH₂O, or O₂ sat dropping.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Immunotherapy (within 2 weeks of onset)</div>
+            <div class="step-code">IVIg 2 g/kg over 5 days (preferred)<br>OR Plasma exchange × 5 sessions<br>Steroids: NOT recommended (no benefit)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Diabetic Neuropathy Treatment</div>
+    <table class="drug-table">
+      <tr><th>Agent</th><th>Dose</th><th>Notes</th></tr>
+      <tr><td><span class="drug-name">Pregabalin</span></td><td>150–600 mg/day</td><td>FDA-approved; first-line</td></tr>
+      <tr><td><span class="drug-name">Duloxetine</span></td><td>60–120 mg/day</td><td>FDA-approved; comorbid depression benefit</td></tr>
+      <tr><td><span class="drug-name">Gabapentin</span></td><td>1800–3600 mg/day</td><td>Titrate slowly; renal dose adjust</td></tr>
+      <tr><td><span class="drug-name">Amitriptyline</span></td><td>25–75 mg qhs</td><td>Avoid in elderly (falls, anticholinergic)</td></tr>
+    </table>
+
+    <div class="warn-box">
+      <div class="warn-box-title">⚠ Opioids in Neuropathy</div>
+      AAN guidelines recommend against opioids as first- or second-line therapy for painful diabetic neuropathy due to addiction risk and modest efficacy vs. approved agents.
+    </div>
+  </div>
+
+  <!-- DETAIL: NEUROMUSCULAR -->
+  <div id="detail-neuromuscular" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AAN 2023</div>
+    <div class="detail-title">Neuromuscular Disease</div>
+    <div class="detail-meta">ALS · MYASTHENIA GRAVIS · MUSCULAR DYSTROPHY</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.aan.com/Guidelines/Home/ByTopic?topicId=19" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">ALS — Disease-Modifying Therapy</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">El Escorial Diagnosis</div>
+            <div class="step-text">UMN + LMN signs in ≥2 regions (bulbar, cervical, thoracic, lumbosacral). EMG for LMN evidence. MRI to exclude structural mimics.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Neuroprotective Agents</div>
+            <div class="step-code">Riluzole 50 mg BID (extends survival ~3 mo)<br>Edaravone IV (functional decline ↓ in select pts)<br>AMX0035 (sodium phenylbutyrate/tauroursodeoxycholic acid)</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Respiratory Monitoring</div>
+            <div class="step-text">FVC every 3 months. NIV when FVC &lt;50% or symptomatic orthopnea. PEG before FVC falls &lt;50%.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Myasthenia Gravis — Management</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Diagnosis</div>
+            <div class="step-code">AChR Ab (85% sensitivity in generalized MG)<br>MuSK Ab (if AChR negative, 40–70%)<br>SFEMG: most sensitive (>95%)<br>Edrophonium test: limited use now</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Treatment Ladder</div>
+            <div class="step-code">Pyridostigmine 30–60 mg q4–6 h (symptomatic)<br>Prednisone (start low, titrate up)<br>Azathioprine / mycophenolate (steroid-sparing)<br>Complement inhibitors: eculizumab, ravulizumab</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Myasthenic Crisis</div>
+            <div class="step-text">ICU admission. IVIg 2 g/kg OR plasma exchange. Avoid succinylcholine (prolonged block). Hold pyridostigmine acutely (↑ secretions).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">MG: Drugs to Avoid</div>
+      <div class="key-point">Fluoroquinolones, aminoglycosides — worsen NMJ transmission.</div>
+      <div class="key-point">Magnesium infusions — can precipitate crisis.</div>
+      <div class="key-point">Beta-blockers, procainamide — use with caution.</div>
+      <div class="key-point">Thymectomy: recommended in AChR+ generalized MG, especially age &lt;65.</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: NEUROCOGNITIVE -->
+  <div id="detail-neurocognitive" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AAN / NIA-AA 2023</div>
+    <div class="detail-title">Neurocognitive Disorders</div>
+    <div class="detail-meta">ALZHEIMER'S · FTD · LEWY BODY DEMENTIA</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.alz.org/research/for_researchers/diagnostic-criteria-guidelines" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Alzheimer's Disease — Workup</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Cognitive Screening</div>
+            <div class="step-code">MoCA (&lt;26 = impaired) — preferred<br>MMSE (&lt;24 = impaired)<br>CDR for staging (0=normal, 0.5=MCI, 1–3=dementia)</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Biomarker Framework (NIA-AA 2018/2023)</div>
+            <div class="step-code">A: Amyloid (PET or CSF Aβ42/40 ratio)<br>T: Tau (CSF p-tau181; tau PET)<br>N: Neurodegeneration (FDG-PET; MRI atrophy)<br>Plasma p-tau217: emerging first-line biomarker</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Anti-Amyloid Therapy (2023)</div>
+            <div class="step-code">Lecanemab (Leqembi): early AD, amyloid confirmed<br>Donanemab: FDA approved 2024<br>Require APOE4 genotyping (↑ ARIA risk)<br>MRI monitoring per ARIA protocol</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Dementia Differential</div>
+    <table class="drug-table">
+      <tr><th>Type</th><th>Key Feature</th><th>Biomarker / Clue</th></tr>
+      <tr><td><span class="drug-name">Alzheimer's</span></td><td>Episodic memory first</td><td>Amyloid PET+ / CSF Aβ↓ p-tau↑</td></tr>
+      <tr><td><span class="drug-name">FTD (bvFTD)</span></td><td>Behavior/personality change first</td><td>Frontal atrophy; TDP-43/FUS pathology</td></tr>
+      <tr><td><span class="drug-name">LBD</span></td><td>Parkinsonism + fluctuating cognition + RBD</td><td>DaTscan reduced; α-synuclein</td></tr>
+      <tr><td><span class="drug-name">Vascular</span></td><td>Stepwise decline; executive dysfunction</td><td>White matter lesions; lacunes on MRI</td></tr>
+    </table>
+
+    <div class="warn-box">
+      <div class="warn-box-title">⚠ ARIA Monitoring (Anti-Amyloid)</div>
+      Amyloid-related imaging abnormalities (ARIA-E/H) require baseline MRI and serial monitoring at 2, 4, 7 months post-infusion start. Symptomatic ARIA = hold therapy.
+    </div>
+  </div>
+
+  <!-- DETAIL: NEURO-ONCOLOGY -->
+  <div id="detail-neurooncology" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">WHO CNS 2021 / NCCN 2023</div>
+    <div class="detail-title">Neuro-Oncology</div>
+    <div class="detail-meta">CNS TUMOR CLASSIFICATION · GBM · BRAIN METS</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.nccn.org/guidelines/guidelines-detail?category=1&id=1425" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">WHO 2021 CNS Tumor Classification</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Glioma Grading (integrated diagnosis)</div>
+            <div class="step-code">Astrocytoma IDH-mutant: Grade 2–4<br>Oligodendroglioma IDH-mut/1p19q-codelet: Grade 2–3<br>Glioblastoma IDH-wildtype: Grade 4 (always)<br>H3 K27M-altered diffuse glioma: Grade 4</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Key Molecular Markers</div>
+            <div class="step-code">IDH1/2 mutation: prognostic (better outcome)<br>MGMT promoter methylation: predicts TMZ response<br>TERT promoter: GBM marker<br>EGFR amplification: GBM feature</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">GBM Standard of Care (Stupp Protocol)</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Surgery</div>
+            <div class="step-text">Maximal safe resection. 5-ALA fluorescence guidance to maximize extent of resection (Class I evidence).</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Concurrent chemoradiation</div>
+            <div class="step-code">RT: 60 Gy in 30 fractions over 6 weeks<br>+ Temozolomide 75 mg/m² daily during RT</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Adjuvant chemotherapy</div>
+            <div class="step-code">Temozolomide 150–200 mg/m² × 5 days, q28d × 6 cycles<br>+ Tumor Treating Fields (TTFields) if MGMT-methylated</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Brain Metastases</div>
+    <table class="drug-table">
+      <tr><th>Situation</th><th>Preferred Approach</th><th>Notes</th></tr>
+      <tr><td>1–3 mets, good KPS</td><td><span class="drug-name">SRS ± surgery</span></td><td>Avoid WBRT if possible (cognitive SE)</td></tr>
+      <tr><td>4–10 mets, small</td><td><span class="drug-name">SRS</span></td><td>Hippocampal-avoidance WBRT if SRS not feasible</td></tr>
+      <tr><td>Leptomeningeal</td><td><span class="drug-name">IT chemotherapy</span></td><td>MTX intrathecal; poor prognosis</td></tr>
+      <tr><td>Dexamethasone</td><td><span class="drug-name">4 mg q6 h</span></td><td>Reduce peritumoral edema acutely</td></tr>
+    </table>
+
+    <div class="key-points">
+      <div class="key-points-title">Seizure Prophylaxis in Brain Tumors</div>
+      <div class="key-point">Do NOT use prophylactic AEDs in seizure-naïve brain tumor patients (AAN Class I recommendation).</div>
+      <div class="key-point">If seizures occur, prefer levetiracetam (no CYP450 interaction with chemotherapy).</div>
+      <div class="key-point">Avoid phenytoin/phenobarbital — reduce temozolomide and other chemotherapy levels.</div>
+    </div>
+  </div>
+
+  <!-- FLASHCARDS TAB -->
+  <div id="tab-flashcards" style="display:none">
+    <div class="section-eyebrow">Study Mode</div>
+    <div class="section-title">Flashcards</div>
+    <div class="section-sub">Tap card to reveal the answer.</div>
+
+    <div class="fc-nav">
+      <button class="fc-nav-btn" onclick="prevCard()">← Prev</button>
+      <div class="fc-counter" id="fcCounter">1 / 8</div>
+      <button class="fc-nav-btn" onclick="nextCard()">Next →</button>
+    </div>
+
+    <div class="flashcard-wrap" onclick="flipCard()">
+      <div class="flashcard" id="flashcard">
+        <div class="fc-front">
+          <div class="fc-label">Question</div>
+          <div class="fc-question" id="fcQuestion">What is the tPA window for acute ischemic stroke and the maximum dose?</div>
+          <div class="fc-tap-hint">tap to flip</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-label">Answer</div>
+          <div class="fc-answer" id="fcAnswer">0–4.5 hours from onset. Dose: 0.9 mg/kg IV (max 90 mg); give 10% as bolus, rest over 60 min.</div>
+          <div class="fc-tap-hint">tap to flip back</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIZ TAB -->
+  <div id="tab-quiz" style="display:none">
+    <div class="section-eyebrow">Self-Test</div>
+    <div class="section-title">Knowledge Quiz</div>
+    <div class="section-sub">Select the best answer for each question.</div>
+
+    <div id="quizContainer"></div>
+    <div id="quizScore" style="display:none">
+      <div class="score-box">
+        <div class="score-num" id="scoreNum">0/9</div>
+        <div class="score-label">Quiz Complete</div>
+      </div>
+      <button class="quiz-next-btn" style="display:block" onclick="resetQuiz()">Retake Quiz</button>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+const flashcards = [
+  { q: "What is the tPA window for acute ischemic stroke and the maximum dose?", a: "0–4.5 hours from onset. Dose: 0.9 mg/kg IV (max 90 mg); give 10% as bolus, rest over 60 min." },
+  { q: "Name three absolute contraindications to tPA in stroke.", a: "Prior ICH, BP >185/110 (untreated), INR >1.7, major surgery within 14 days, active bleeding." },
+  { q: "What BP target should be maintained for 24 h after tPA?", a: "Maintain BP <180/105 mmHg for 24 hours post-thrombolysis." },
+  { q: "First-line benzodiazepine for status epilepticus in the hospital?", a: "Lorazepam 0.1 mg/kg IV (max 4 mg). IM midazolam 10 mg if no IV access." },
+  { q: "Three second-line agents for status epilepticus?", a: "Fosphenytoin 20 PE/kg IV, Valproate 40 mg/kg IV, or Levetiracetam 60 mg/kg IV — all Class IIa." },
+  { q: "Which AED should be AVOIDED in juvenile myoclonic epilepsy?", a: "Carbamazepine (and other Na-channel blockers like oxcarbazepine) — they can worsen myoclonus." },
+  { q: "What are the criteria to start migraine preventive therapy?", a: "≥4 headache days/month with disability, OR ≥8 headache days/month, OR acute medication overuse." },
+  { q: "How does lasmiditan differ from triptans mechanistically?", a: "Lasmiditan is a 5-HT1F agonist (ditan) with no vasoconstriction. Safe in cardiovascular disease unlike triptans." },
+  { q: "What does DIS mean in McDonald MS criteria?", a: "Dissemination in Space: ≥1 T2 lesion in ≥2 of 4 CNS areas (periventricular, cortical/juxtacortical, infratentorial, spinal)." },
+  { q: "Which MS DMT requires JC virus antibody monitoring and why?", a: "Natalizumab — risk of PML (progressive multifocal leukoencephalopathy) in JCV-antibody positive patients." },
+  { q: "What nerve conduction finding is required for CIDP diagnosis?", a: "Demyelination in ≥2 nerves: prolonged distal latency, reduced conduction velocity, or conduction block/temporal dispersion." },
+  { q: "Why are steroids NOT recommended in Guillain-Barré Syndrome?", a: "Randomized trials show no benefit from corticosteroids in GBS and may cause harm. IVIg or plasma exchange are the treatments of choice." },
+  { q: "Name three drugs to avoid in myasthenia gravis.", a: "Fluoroquinolones, aminoglycosides, and magnesium infusions — all worsen neuromuscular junction transmission and can precipitate crisis." },
+  { q: "What does the ABC/TN biomarker framework stand for in Alzheimer's?", a: "A = Amyloid (PET or CSF Aβ), T = Tau (p-tau), N = Neurodegeneration (FDG-PET or MRI atrophy). Guides diagnosis and trial eligibility." },
+  { q: "What is ARIA and when does it occur?", a: "Amyloid-Related Imaging Abnormalities (edema/microhemorrhage) — a side effect of anti-amyloid antibodies (lecanemab, donanemab). Requires serial MRI monitoring." },
+  { q: "What molecular marker predicts temozolomide response in GBM?", a: "MGMT promoter methylation — methylated tumors have silenced DNA repair and respond better to temozolomide chemotherapy." },
+  { q: "Why should phenytoin be avoided in brain tumor patients on chemotherapy?", a: "Phenytoin induces CYP450 enzymes, significantly reducing blood levels of temozolomide and many other chemotherapy agents." }
+];
+
+const quizData = [
+  {
+    q: "A 67-year-old presents 3 hours after stroke onset. BP 190/100. What should you do BEFORE giving tPA?",
+    opts: ["Give tPA immediately", "Lower BP to <185/110, then give tPA", "Withhold tPA; BP too high", "Give aspirin and admit"],
+    ans: 1,
+    explain: "AHA guideline: BP must be reduced to <185/110 mmHg before tPA administration. Use labetalol or nicardipine IV."
+  },
+  {
+    q: "What is the preferred benzodiazepine for out-of-hospital status epilepticus?",
+    opts: ["IV lorazepam", "IV diazepam", "IM midazolam", "Rectal diazepam"],
+    ans: 2,
+    explain: "IM midazolam 10 mg is preferred prehospital due to ease of administration. RAMPART trial showed non-inferiority to IV lorazepam."
+  },
+  {
+    q: "A 28-year-old woman with GTCS epilepsy wants to become pregnant. Which AED should you AVOID?",
+    opts: ["Levetiracetam", "Lamotrigine", "Valproate", "Oxcarbazepine"],
+    ans: 2,
+    explain: "Valproate has the highest teratogenic risk (neural tube defects, cognitive effects). AAN guidelines recommend avoiding in women of childbearing age when possible."
+  },
+  {
+    q: "Which of the following is a CGRP monoclonal antibody for migraine prevention?",
+    opts: ["Sumatriptan", "Erenumab", "Lasmiditan", "Topiramate"],
+    ans: 1,
+    explain: "Erenumab (anti-CGRP receptor MAb) is FDA-approved for migraine prevention. Monthly SC injection. Requires minimum 3-month trial."
+  },
+  {
+    q: "McDonald 2017 criteria for MS diagnosis requires DIS and DIT. What does DIT stand for?",
+    opts: ["Dissemination in Time", "Demyelinating Injury Threshold", "Diffuse Intracranial Tension", "Diagnostic Imaging Threshold"],
+    ans: 0,
+    explain: "DIT = Dissemination in Time: new T2/Gd+ lesion on follow-up MRI, or simultaneous Gd+ and Gd− lesions, or CSF-specific oligoclonal bands."
+  },
+  {
+    q: "Which treatment is contraindicated in GBS despite being used for other inflammatory neuropathies?",
+    opts: ["IVIg", "Plasma exchange", "Corticosteroids", "Pyridostigmine"],
+    ans: 2,
+    explain: "Corticosteroids are NOT recommended in GBS — randomized trials show no benefit and possible harm. IVIg and plasma exchange are the only evidence-based treatments."
+  },
+  {
+    q: "A patient with AChR-positive generalized myasthenia gravis is scheduled for surgery. Which drug should be avoided for anesthesia induction?",
+    opts: ["Propofol", "Succinylcholine", "Rocuronium (low dose)", "Ketamine"],
+    ans: 1,
+    explain: "Succinylcholine causes unpredictable prolonged blockade in MG due to reduced acetylcholine receptors. Non-depolarizing NMBs should also be used cautiously at reduced doses."
+  },
+  {
+    q: "A patient with early Alzheimer's is being considered for lecanemab. Which genetic test is most important to obtain first?",
+    opts: ["BRCA1/2", "APOE4 genotype", "APP mutation panel", "TREM2 status"],
+    ans: 1,
+    explain: "APOE4 carriers (especially homozygous) have significantly higher risk of ARIA (amyloid-related imaging abnormalities) with anti-amyloid therapies. Genotyping guides risk counseling and monitoring intensity."
+  },
+  {
+    q: "In GBM management, MGMT promoter methylation is clinically important because it:",
+    opts: ["Predicts surgical resectability", "Confers resistance to radiation", "Predicts response to temozolomide chemotherapy", "Is required for WHO Grade 4 classification"],
+    ans: 2,
+    explain: "MGMT promoter methylation silences the DNA repair enzyme MGMT, making tumor cells more sensitive to temozolomide alkylating damage. It is the strongest predictive biomarker for TMZ benefit in GBM."
+  }
+];
+
+let currentCard = 0;
+let isFlipped = false;
+let quizAnswered = [];
+let quizScore = 0;
+
+// --- Persistence via localStorage ---
+const STORAGE_KEY = 'neuro_guidelines_v1';
+
+function saveProgress(data) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e) {}
+}
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch(e) { return null; }
+}
+
+function updateProgressUI(pct) {
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressPct').textContent = pct + '%';
+  const saved = loadProgress() || {};
+  saved.quizPct = pct;
+  saved.lastVisit = new Date().toISOString();
+  saveProgress(saved);
+}
+
+function initFromStorage() {
+  const saved = loadProgress();
+  if (!saved) return;
+  if (saved.quizPct) {
+    document.getElementById('progressFill').style.width = saved.quizPct + '%';
+    document.getElementById('progressPct').textContent = saved.quizPct + '%';
+    document.getElementById('progressText').textContent =
+      saved.lastVisit ? 'Last visit: ' + new Date(saved.lastVisit).toLocaleDateString() : 'Progress';
+  }
+  if (saved.cardIndex) {
+    currentCard = saved.cardIndex;
+    updateCard();
+  }
+}
+
+window.addEventListener('load', initFromStorage);
+
+function showTab(name) {
+  ['home','guidelines','flashcards','quiz'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = 'none';
+  });
+  document.getElementById('tab-'+name).style.display = 'block';
+  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.remove('active'));
+  const idx = ['home','guidelines','flashcards','quiz'].indexOf(name);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+  document.getElementById('headerMode').textContent = name.toUpperCase();
+  if (name === 'quiz' && quizAnswered.length === 0) buildQuiz();
+}
+
+function openDetail(id) {
+  ['home','guidelines','flashcards','quiz'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = 'none';
+  });
+  document.getElementById('detail-'+id).style.display = 'block';
+  document.getElementById('headerMode').textContent = id.toUpperCase();
+}
+
+function closeDetail() {
+  ['stroke','epilepsy','migraine','ms','neuropathy','neuromuscular','neurocognitive','neurooncology'].forEach(id => {
+    document.getElementById('detail-'+id).style.display = 'none';
+  });
+  document.getElementById('tab-guidelines').style.display = 'block';
+  document.getElementById('headerMode').textContent = 'GUIDELINES';
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-btn')[1].classList.add('active');
+}
+
+function updateCard() {
+  const card = flashcards[currentCard];
+  document.getElementById('fcQuestion').textContent = card.q;
+  document.getElementById('fcAnswer').textContent = card.a;
+  document.getElementById('fcCounter').textContent = (currentCard+1) + ' / ' + flashcards.length;
+  const fc = document.getElementById('flashcard');
+  fc.classList.remove('flipped');
+  isFlipped = false;
+  // save position
+  const saved = loadProgress() || {};
+  saved.cardIndex = currentCard;
+  saveProgress(saved);
+}
+
+function flipCard() {
+  const fc = document.getElementById('flashcard');
+  isFlipped = !isFlipped;
+  fc.classList.toggle('flipped', isFlipped);
+}
+
+function nextCard() {
+  currentCard = (currentCard + 1) % flashcards.length;
+  updateCard();
+}
+
+function prevCard() {
+  currentCard = (currentCard - 1 + flashcards.length) % flashcards.length;
+  updateCard();
+}
+
+function buildQuiz() {
+  quizAnswered = [];
+  quizScore = 0;
+  const c = document.getElementById('quizContainer');
+  c.innerHTML = '';
+  quizData.forEach((q, qi) => {
+    const div = document.createElement('div');
+    div.id = 'quiz-' + qi;
+    div.innerHTML = `
+      <div class="quiz-q">${qi+1}. ${q.q}</div>
+      ${q.opts.map((o,oi) => `
+        <div class="quiz-option" onclick="answerQ(${qi},${oi})">
+          <span class="option-letter">${['A','B','C','D'][oi]}</span>
+          <span>${o}</span>
+        </div>`).join('')}
+      <div class="quiz-explain" id="explain-${qi}">${q.explain}</div>
+      <button class="quiz-next-btn" id="next-${qi}" onclick="showNext(${qi})">
+        ${qi < quizData.length-1 ? 'Next Question →' : 'See Results'}
+      </button>
+      <div class="divider"></div>
+    `;
+    div.style.display = qi === 0 ? 'block' : 'none';
+    c.appendChild(div);
+  });
+}
+
+function answerQ(qi, chosen) {
+  if (quizAnswered[qi] !== undefined) return;
+  quizAnswered[qi] = chosen;
+  const q = quizData[qi];
+  const opts = document.querySelectorAll(`#quiz-${qi} .quiz-option`);
+  opts.forEach((o, oi) => {
+    if (oi === q.ans) o.classList.add('correct');
+    else if (oi === chosen && chosen !== q.ans) o.classList.add('wrong');
+  });
+  if (chosen === q.ans) quizScore++;
+  document.getElementById('explain-'+qi).style.display = 'block';
+  document.getElementById('next-'+qi).style.display = 'block';
+  const pct = Math.round((quizAnswered.filter(a=>a!==undefined).length / quizData.length)*100);
+  updateProgressUI(pct);
+  // save best score
+  const saved = loadProgress() || {};
+  if (!saved.bestScore || quizScore > saved.bestScore) saved.bestScore = quizScore;
+  saveProgress(saved);
+}
+
+function showNext(qi) {
+  document.getElementById('quiz-'+qi).style.display = 'none';
+  if (qi < quizData.length-1) {
+    document.getElementById('quiz-'+(qi+1)).style.display = 'block';
+  } else {
+    document.getElementById('quizScore').style.display = 'block';
+    document.getElementById('scoreNum').textContent = quizScore + '/' + quizData.length;
+  }
+}
+
+function resetQuiz() {
+  document.getElementById('quizScore').style.display = 'none';
+  buildQuiz();
+}
+</script>
+</body>
+</html>
