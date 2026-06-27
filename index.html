@@ -666,11 +666,11 @@
 
     <div class="stats-row">
       <div class="stat-box">
-        <div class="stat-num">9</div>
+        <div class="stat-num">14</div>
         <div class="stat-lbl">Topics</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">26</div>
+        <div class="stat-num">17</div>
         <div class="stat-lbl">Flashcards</div>
       </div>
       <div class="stat-box">
@@ -915,12 +915,104 @@
     </div>
   </div>
 
-  <!-- DETAIL: STROKE -->
+  <!-- DETAIL: STROKE HUB -->
   <div id="detail-stroke" style="display:none">
     <button class="back-btn" onclick="closeDetail()">← Back</button>
     <div class="section-eyebrow">AHA/ASA 2026</div>
+    <div class="detail-title">Stroke Guidelines</div>
+    <div class="detail-meta">SELECT A SUBTOPIC BELOW</div>
+
+    <div class="card" onclick="openDetail('strokeacute')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,100,90,0.12)">⚡</div>
+        <div class="card-meta">
+          <div class="card-title">Acute Ischemic Stroke</div>
+          <span class="card-badge badge-aha">AHA/ASA 2026</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">tPA, tenecteplase, thrombectomy, BP management.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('ich')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,60,60,0.12)">🩸</div>
+        <div class="card-meta">
+          <div class="card-title">Intracerebral Hemorrhage (ICH)</div>
+          <span class="card-badge badge-aha">AHA/ASA 2022</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">BP targets, anticoagulation reversal, surgical criteria, ICH score.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('sah')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(229,100,180,0.12)">🧨</div>
+        <div class="card-meta">
+          <div class="card-title">Subarachnoid Hemorrhage (SAH)</div>
+          <span class="card-badge badge-aha">AHA/ASA 2023</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">Hunt-Hess grading, aneurysm securing, nimodipine, vasospasm.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('tia')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(91,142,240,0.12)">⏱️</div>
+        <div class="card-meta">
+          <div class="card-title">TIA & Minor Stroke</div>
+          <span class="card-badge badge-aha">AHA/ASA 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">ABCD2 score, rapid workup, early DAPT, cardiac monitoring.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('strokeyoung')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(76,175,138,0.12)">🧑</div>
+        <div class="card-meta">
+          <div class="card-title">Stroke in Young Adults</div>
+          <span class="card-badge badge-aha">AHA/ASA 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">PFO closure, cervical dissection, hypercoagulable workup.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('strokerehab')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(232,163,58,0.12)">🏥</div>
+        <div class="card-meta">
+          <div class="card-title">Stroke Rehabilitation</div>
+          <span class="card-badge badge-aha">AHA/ASA 2022</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">Early mobilization, PT/OT/SLP, spasticity, post-stroke depression.</div>
+    </div>
+
+    <div class="card" onclick="openDetail('strokeprevention')">
+      <div class="card-header">
+        <div class="card-icon" style="background:rgba(180,100,240,0.12)">🛡️</div>
+        <div class="card-meta">
+          <div class="card-title">Secondary Prevention</div>
+          <span class="card-badge badge-aha">AHA/ASA 2021</span>
+        </div>
+        <div class="card-arrow">›</div>
+      </div>
+      <div class="card-desc">Antithrombotics by mechanism, BP/lipid targets, carotid intervention.</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: ACUTE ISCHEMIC STROKE -->
+  <div id="detail-strokeacute" style="display:none">
+    <button class="back-btn" onclick="openDetail('stroke')">← Stroke</button>
+    <div class="section-eyebrow">AHA/ASA 2026</div>
     <div class="detail-title">Acute Ischemic Stroke</div>
-    <div class="detail-meta">UPDATED: JAN 2026 · Class I–IIa recommendations</div>
+    <div class="detail-meta">LAST UPDATED: JAN 2026 · Class I–IIa recommendations</div>
     <div class="source-bar">
       <div>
         <div class="source-label">⚠ Content below is summarized</div>
@@ -944,7 +1036,7 @@
           <div class="step-num">2</div>
           <div class="step-content">
             <div class="step-title">Tenecteplase (TNK)</div>
-            <div class="step-text">Now Class IIa: 0.25 mg/kg IV single bolus, 0–4.5 h. Preferred prior to thrombectomy.</div>
+            <div class="step-text">Class IIa: 0.25 mg/kg IV single bolus, 0–4.5 h. Preferred prior to thrombectomy.</div>
           </div>
         </div>
         <div class="algo-step">
@@ -977,6 +1069,467 @@
     <div class="warn-box">
       <div class="warn-box-title">⚠ BP Pitfall</div>
       Permissive hypertension (up to 220/120) is only for non-thrombolysis candidates. Aggressive lowering increases infarct extension risk in first 24 h.
+    </div>
+  </div>
+
+  <!-- DETAIL: ICH -->
+  <div id="detail-ich" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2022</div>
+    <div class="detail-title">Intracerebral Hemorrhage</div>
+    <div class="detail-meta">SPONTANEOUS ICH · BP · REVERSAL · SURGERY</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000407" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Acute BP Management</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">SBP 150–220 mmHg</div>
+            <div class="step-text">Acute lowering to SBP &lt;140 mmHg is safe and may improve functional outcome (Class IIa). Target within 1 hour of presentation.</div>
+            <div class="step-code">Nicardipine IV infusion (preferred)<br>OR Labetalol IV bolus/infusion<br>OR Clevidipine IV infusion</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">SBP &gt;220 mmHg</div>
+            <div class="step-text">Aggressive reduction with continuous IV infusion and close monitoring. Target SBP &lt;140 mmHg.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Anticoagulation Reversal</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Warfarin (elevated INR)</div>
+            <div class="step-code">4-Factor PCC (Kcentra) — preferred over FFP<br>+ Vitamin K 10 mg IV<br>Target INR &lt;1.5 urgently</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Dabigatran</div>
+            <div class="step-code">Idarucizumab (Praxbind) 5 g IV (2 × 2.5 g)</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Factor Xa inhibitors (apixaban, rivaroxaban)</div>
+            <div class="step-code">Andexanet alfa (AndexXa) — FDA approved<br>OR 4-Factor PCC if andexanet unavailable</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Antiplatelet-associated ICH</div>
+            <div class="step-text">Platelet transfusion NOT recommended routinely (PATCH trial: harm). Use only if emergency surgery planned.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Surgical Considerations</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Cerebellar ICH</div>
+            <div class="step-text">Surgical evacuation if diameter &gt;3 cm OR neurological deterioration OR brainstem compression. Do not delay.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Supratentorial ICH</div>
+            <div class="step-text">Minimally invasive surgery (MIS) — Class IIb for selected patients with superficial lobar hematoma. Standard craniotomy not routinely superior to medical management (STICH trials).</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Hydrocephalus / IVH</div>
+            <div class="step-text">EVD placement for hydrocephalus with decreased consciousness. Intraventricular tPA (alteplase) to accelerate clot lysis (CLEAR III trial).</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">ICH Score — Prognosis</div>
+      <div class="key-point">GCS 3–4 = 2 pts · GCS 5–12 = 1 pt · GCS 13–15 = 0 pts</div>
+      <div class="key-point">ICH volume ≥30 mL = 1 pt · Infratentorial = 1 pt · IVH present = 1 pt · Age ≥80 = 1 pt</div>
+      <div class="key-point">Score 0–1: low mortality. Score 4–6: very high 30-day mortality.</div>
+    </div>
+
+    <div class="warn-box">
+      <div class="warn-box-title">⚠ Hematoma Expansion</div>
+      30% of ICH patients expand in first 24 h. Spot sign on CTA predicts expansion. Aggressive SBP control to &lt;140 mmHg within 1 hour is the key modifiable factor.
+    </div>
+  </div>
+
+  <!-- DETAIL: SAH -->
+  <div id="detail-sah" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2023</div>
+    <div class="detail-title">Subarachnoid Hemorrhage</div>
+    <div class="detail-meta">ANEURYSMAL SAH · VASOSPASM · COMPLICATIONS</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000457" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Grading & Initial Management</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Hunt-Hess & WFNS Grading</div>
+            <div class="step-code">Hunt-Hess I: mild HA, no neuro deficit<br>Hunt-Hess II: severe HA, nuchal rigidity<br>Hunt-Hess III: drowsy, mild deficit<br>Hunt-Hess IV–V: stupor/coma</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">BP Control Pre-Securing</div>
+            <div class="step-text">Maintain SBP &lt;160 mmHg until aneurysm secured to prevent rebleeding. Nicardipine or labetalol IV.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Aneurysm Securing</div>
+            <div class="step-text">Endovascular coiling preferred over surgical clipping when both feasible (ISAT trial). Clip for MCA aneurysms, young patients, or large hematoma needing evacuation.</div>
+            <div class="step-code">Target: within 24–72 h of presentation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Vasospasm Prevention & Treatment</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Nimodipine (mandatory)</div>
+            <div class="step-code">60 mg PO/NG q4h × 21 days<br>Reduces poor neurological outcome (Class I)<br>Does NOT prevent angiographic vasospasm</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Euvolemia</div>
+            <div class="step-text">Maintain normovolemia with isotonic fluids. Prophylactic hypervolemia (HHH therapy) is no longer recommended — increased complications without benefit.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Delayed Cerebral Ischemia (DCI)</div>
+            <div class="step-text">Induced hypertension (SBP target 160–200 mmHg) for clinical vasospasm. Intra-arterial verapamil or balloon angioplasty for refractory cases.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">SAH Complications to Monitor</div>
+      <div class="key-point">Hydrocephalus (20%): EVD if acute. VP shunt if chronic.</div>
+      <div class="key-point">Rebleeding: highest risk in first 24 h (4–13%). Secure aneurysm urgently.</div>
+      <div class="key-point">Hyponatremia: cerebral salt wasting (give Na) vs SIADH (restrict fluids). Fludrocortisone for CSW.</div>
+      <div class="key-point">Seizures: levetiracetam prophylaxis short-term (Class IIb); avoid phenytoin.</div>
+      <div class="key-point">Cardiac: neurogenic stunned myocardium, Takotsubo pattern — troponin + Echo in all.</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: TIA -->
+  <div id="detail-tia" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2021</div>
+    <div class="detail-title">TIA & Minor Stroke</div>
+    <div class="detail-meta">RAPID WORKUP · ABCD2 · EARLY INTERVENTION</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000507" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">ABCD2 Score</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">A</div>
+          <div class="step-content">
+            <div class="step-title">Age ≥60 = 1 pt</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">B</div>
+          <div class="step-content">
+            <div class="step-title">BP ≥140/90 at presentation = 1 pt</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">C</div>
+          <div class="step-content">
+            <div class="step-title">Clinical features</div>
+            <div class="step-code">Unilateral weakness = 2 pts<br>Speech disturbance without weakness = 1 pt</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">D</div>
+          <div class="step-content">
+            <div class="step-title">Duration + Diabetes</div>
+            <div class="step-code">Duration ≥60 min = 2 pts · 10–59 min = 1 pt<br>Diabetes = 1 pt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">ABCD2 Risk Stratification</div>
+      <div class="key-point">Score 0–3 (low): 2-day stroke risk ~1%. Outpatient workup acceptable if rapid-access TIA clinic available within 24 h.</div>
+      <div class="key-point">Score 4–5 (moderate): 2-day stroke risk ~4%. Admit or same-day evaluation.</div>
+      <div class="key-point">Score 6–7 (high): 2-day stroke risk ~8%. Admit all patients.</div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Rapid Workup (all TIA/minor stroke)</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Imaging</div>
+            <div class="step-code">MRI DWI within 24 h (preferred over CT)<br>MRA head + neck OR CTA<br>Carotid doppler if MRA unavailable</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Cardiac</div>
+            <div class="step-code">12-lead ECG immediately<br>Continuous telemetry ≥24 h<br>Echocardiogram (TTE or TEE)<br>Prolonged cardiac monitoring ≥30 days if cryptogenic</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Labs</div>
+            <div class="step-code">CBC, BMP, lipids, HbA1c<br>Coagulation (PT/INR, aPTT)<br>Hypercoagulable panel if &lt;55 or cryptogenic</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Early Antiplatelet</div>
+            <div class="step-text">Aspirin 325 mg immediately. DAPT (aspirin + clopidogrel) × 21 days for high-risk TIA (ABCD2 ≥4) or minor ischemic stroke (NIHSS ≤3) — POINT/CHANCE trials.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DETAIL: STROKE YOUNG -->
+  <div id="detail-strokeyoung" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2021</div>
+    <div class="detail-title">Stroke in Young Adults</div>
+    <div class="detail-meta">AGE &lt;55 · PFO · DISSECTION · THROMBOPHILIA</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000352" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Etiologic Workup — Young Stroke</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Standard workup + extended cardiac monitoring</div>
+            <div class="step-code">TEE preferred over TTE (detect PFO, aortic arch)<br>Prolonged Holter/loop recorder ≥30 days<br>MRI with DWI + vessel imaging</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Hypercoagulable Panel</div>
+            <div class="step-code">Antiphospholipid antibodies (3 tests, 12 wk apart)<br>Factor V Leiden · Prothrombin G20210A<br>Protein C/S · Antithrombin III<br>Homocysteine · MTHFR</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Arteriopathy Screen</div>
+            <div class="step-code">Cervical vessel imaging (dissection)<br>High-resolution vessel wall MRI (vasculitis)<br>Genetic testing: CADASIL (NOTCH3), Fabry (GLA)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">PFO Management</div>
+    <table class="drug-table">
+      <tr><th>Scenario</th><th>Recommendation</th><th>Evidence</th></tr>
+      <tr><td>Cryptogenic stroke age 18–60, high-risk PFO</td><td><span class="drug-name">PFO closure + antiplatelet</span></td><td>CLOSE, REDUCE, RESPECT trials — Class IIa</td></tr>
+      <tr><td>Cryptogenic stroke, low-risk PFO or &gt;60 yrs</td><td><span class="drug-name">Antiplatelet alone</span></td><td>Risk/benefit less clear</td></tr>
+      <tr><td>PFO + DVT/PE (paradoxical embolism)</td><td><span class="drug-name">Anticoagulation ± closure</span></td><td>Anticoagulate for VTE; consider closure</td></tr>
+    </table>
+
+    <div class="key-points">
+      <div class="key-points-title">Cervical Artery Dissection</div>
+      <div class="key-point">Most common cause of stroke in adults &lt;45. Carotid or vertebral artery.</div>
+      <div class="key-point">Classic triad: neck pain/headache + Horner syndrome + ischemic symptoms.</div>
+      <div class="key-point">Treatment: antiplatelet OR anticoagulation × 3–6 months — no proven superiority of one over other (CADISS trial).</div>
+      <div class="key-point">MRI with fat-sat sequences shows intramural hematoma (crescent sign).</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: STROKE REHAB -->
+  <div id="detail-strokerehab" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2022</div>
+    <div class="detail-title">Stroke Rehabilitation</div>
+    <div class="detail-meta">EARLY MOBILIZATION · PT/OT/SLP · DISCHARGE PLANNING</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000375" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-header">Acute Rehabilitation Initiation</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Early Mobilization</div>
+            <div class="step-text">Out-of-bed activity within 24–48 h for stable patients (Class IIa). Very early mobilization (&lt;24 h) with high-frequency, high-intensity activity is harmful — AVERT trial.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Swallowing Screen</div>
+            <div class="step-text">Before any oral intake — validated dysphagia screen (Class I). Formal SLP evaluation if screen fails. NPO + NG tube feeding within 7 days if unable to swallow safely.</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Therapy Intensity</div>
+            <div class="step-code">PT: gait, balance, transfers — daily<br>OT: ADLs, upper extremity — daily<br>SLP: aphasia, dysphagia — daily if indicated<br>Target: ≥3 h/day active therapy in inpatient rehab</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Post-Stroke Complications</div>
+    <table class="drug-table">
+      <tr><th>Complication</th><th>Management</th><th>Notes</th></tr>
+      <tr><td>Spasticity</td><td><span class="drug-name">Baclofen · Tizanidine<br>Botulinum toxin</span></td><td>OnabotulinumA for focal spasticity — Class I</td></tr>
+      <tr><td>Post-stroke depression</td><td><span class="drug-name">SSRIs (fluoxetine, sertraline)</span></td><td>Screen all patients; treat proactively</td></tr>
+      <tr><td>Shoulder subluxation</td><td><span class="drug-name">Positioning + FES</span></td><td>Functional electrical stimulation reduces pain</td></tr>
+      <tr><td>Central post-stroke pain</td><td><span class="drug-name">Amitriptyline<br>Lamotrigine</span></td><td>Opioids generally ineffective</td></tr>
+      <tr><td>VTE prophylaxis</td><td><span class="drug-name">IPC devices → LMWH</span></td><td>IPC from admission; LMWH when bleeding risk acceptable</td></tr>
+    </table>
+
+    <div class="key-points">
+      <div class="key-points-title">Discharge Disposition Criteria</div>
+      <div class="key-point">Inpatient rehab (IRF): able to tolerate 3 h/day therapy; 2 disciplines needed; medically stable.</div>
+      <div class="key-point">Skilled nursing facility: needs rehab but cannot tolerate IRF intensity.</div>
+      <div class="key-point">Home with outpatient therapy: mild deficits, safe home environment, reliable caregiver.</div>
+      <div class="key-point">mRS at discharge predicts 1-year outcome — document at every visit.</div>
+    </div>
+  </div>
+
+  <!-- DETAIL: STROKE SECONDARY PREVENTION -->
+  <div id="detail-strokeprevention" style="display:none">
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+    <div class="section-eyebrow">AHA/ASA 2021 / 2023</div>
+    <div class="detail-title">Stroke Secondary Prevention</div>
+    <div class="detail-meta">ANTITHROMBOTICS · RISK FACTORS · CAROTID · PFO</div>
+    <div class="source-bar">
+      <div>
+        <div class="source-label">⚠ Content below is summarized</div>
+        <div class="source-disclaimer">Read official guideline for verbatim recommendations</div>
+      </div>
+      <a class="source-link" href="https://www.ahajournals.org/doi/10.1161/STR.0000000000000513" target="_blank">Official ↗</a>
+    </div>
+
+    <div class="section-eyebrow" style="margin-bottom:8px">Antithrombotic by Stroke Mechanism</div>
+    <table class="drug-table">
+      <tr><th>Mechanism</th><th>Agent</th><th>Duration/Notes</th></tr>
+      <tr><td>Non-cardioembolic (large/small vessel)</td><td><span class="drug-name">Aspirin 81–325 mg<br>OR Clopidogrel 75 mg</span></td><td>Indefinite; clopidogrel preferred if aspirin intolerant</td></tr>
+      <tr><td>Minor stroke or high-risk TIA</td><td><span class="drug-name">Aspirin + Clopidogrel</span></td><td>DAPT × 21 days, then monotherapy</td></tr>
+      <tr><td>AF-related cardioembolic</td><td><span class="drug-name">DOAC (preferred)<br>Warfarin if valve/renal</span></td><td>Start 4–14 days post-stroke; rivaroxaban/apixaban/dabigatran</td></tr>
+      <tr><td>Cryptogenic (ESUS)</td><td><span class="drug-name">Antiplatelet</span></td><td>DOAC not superior to ASA in ESUS trials (NAVIGATE, RE-SPECT)</td></tr>
+      <tr><td>Antiphospholipid syndrome</td><td><span class="drug-name">Warfarin (target INR 2–3)</span></td><td>DOACs inferior in APS (TRAPS trial)</td></tr>
+    </table>
+
+    <div class="algo-block">
+      <div class="algo-header">Risk Factor Management Targets</div>
+      <div class="algo-body">
+        <div class="algo-step">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <div class="step-title">Blood Pressure</div>
+            <div class="step-code">Target &lt;130/80 mmHg (Class I)<br>Start or restart antihypertensives after 24–48 h<br>ACE-I + thiazide combination preferred (PROGRESS trial)</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <div class="step-title">Lipids</div>
+            <div class="step-code">High-intensity statin: atorvastatin 40–80 mg<br>Target LDL &lt;70 mg/dL (non-cardioembolic)<br>Add ezetimibe if LDL not at goal<br>PCSK9 inhibitor if statin intolerant or LDL &gt;70 on max statin</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <div class="step-title">Diabetes</div>
+            <div class="step-code">HbA1c target &lt;7% (individualized)<br>GLP-1 agonists (semaglutide) reduce CV events<br>SGLT-2 inhibitors reduce heart failure/renal endpoints</div>
+          </div>
+        </div>
+        <div class="algo-step">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <div class="step-title">Lifestyle</div>
+            <div class="step-text">Smoking cessation (Class I). Moderate aerobic exercise ≥40 min, 3–4×/week. Mediterranean-style diet. Alcohol: ≤2 drinks/day men, ≤1 women.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="key-points">
+      <div class="key-points-title">Carotid Intervention</div>
+      <div class="key-point">Symptomatic stenosis 70–99%: CEA within 2 weeks (Class I). Benefit greatest when done early.</div>
+      <div class="key-point">Symptomatic stenosis 50–69%: CEA reasonable (Class IIa) — depends on patient factors and surgical risk.</div>
+      <div class="key-point">Carotid stenting (CAS): reasonable alternative to CEA for symptomatic stenosis in patients at high surgical risk (Class IIa).</div>
+      <div class="key-point">Asymptomatic stenosis ≥70%: CEA reasonable if perioperative risk &lt;3% and life expectancy &gt;5 years (Class IIa).</div>
     </div>
   </div>
 
@@ -1493,6 +2046,13 @@ const flashcards = [
   { q: "What is the tPA window for acute ischemic stroke and the maximum dose?", a: "0–4.5 hours from onset. Dose: 0.9 mg/kg IV (max 90 mg); give 10% as bolus, rest over 60 min." },
   { q: "Name three absolute contraindications to tPA in stroke.", a: "Prior ICH, BP >185/110 (untreated), INR >1.7, major surgery within 14 days, active bleeding." },
   { q: "What BP target should be maintained for 24 h after tPA?", a: "Maintain BP <180/105 mmHg for 24 hours post-thrombolysis." },
+  { q: "What is the preferred anticoagulation reversal agent for ICH on dabigatran?", a: "Idarucizumab (Praxbind) 5 g IV — a specific reversal agent for dabigatran. For factor Xa inhibitors use andexanet alfa or 4-factor PCC." },
+  { q: "Why is platelet transfusion NOT recommended in antiplatelet-associated ICH?", a: "The PATCH trial showed platelet transfusion caused harm in this setting. It is only reasonable if emergency surgery is planned." },
+  { q: "What is the mandatory drug in aneurysmal SAH and what does it prevent?", a: "Nimodipine 60 mg q4h × 21 days. It reduces poor neurological outcomes but does NOT prevent angiographic vasospasm — it reduces DCI severity." },
+  { q: "What is the ABCD2 score and what does a score ≥4 indicate?", a: "ABCD2 scores Age, BP, Clinical features, Duration, Diabetes (0–7). Score ≥4 = moderate-to-high risk of stroke within 48 h; requires urgent evaluation or admission." },
+  { q: "What is the DAPT regimen and duration for high-risk TIA or minor stroke?", a: "Aspirin + clopidogrel for 21 days, then antiplatelet monotherapy. Based on POINT and CHANCE trials." },
+  { q: "What are the three key features of cervical artery dissection?", a: "Neck pain or headache + Horner syndrome + ischemic stroke/TIA symptoms. MRI fat-sat shows intramural hematoma (crescent sign)." },
+  { q: "What LDL target is recommended after non-cardioembolic ischemic stroke?", a: "LDL <70 mg/dL with high-intensity statin (atorvastatin 40–80 mg). Add ezetimibe or PCSK9 inhibitor if target not reached." },
   { q: "First-line benzodiazepine for status epilepticus in the hospital?", a: "Lorazepam 0.1 mg/kg IV (max 4 mg). IM midazolam 10 mg if no IV access." },
   { q: "Three second-line agents for status epilepticus?", a: "Fosphenytoin 20 PE/kg IV, Valproate 40 mg/kg IV, or Levetiracetam 60 mg/kg IV — all Class IIa." },
   { q: "Which AED should be AVOIDED in juvenile myoclonic epilepsy?", a: "Carbamazepine (and other Na-channel blockers like oxcarbazepine) — they can worsen myoclonus." },
@@ -1632,8 +2192,10 @@ function openDetail(id) {
 }
 
 function closeDetail() {
-  ['stroke','epilepsy','migraine','ms','neuropathy','neuromuscular','neurocognitive','neurooncology'].forEach(id => {
-    document.getElementById('detail-'+id).style.display = 'none';
+  ['stroke','strokeacute','ich','sah','tia','strokeyoung','strokerehab','strokeprevention',
+   'epilepsy','migraine','ms','neuropathy','neuromuscular','neurocognitive','neurooncology'].forEach(id => {
+    const el = document.getElementById('detail-'+id);
+    if (el) el.style.display = 'none';
   });
   document.getElementById('tab-guidelines').style.display = 'block';
   document.getElementById('headerMode').textContent = 'GUIDELINES';
